@@ -38,7 +38,7 @@ data "azurerm_subnet" "subnet" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "nsg_subnet_associate" {
-  count                     = var.subnet_name != null || var.subnet_id != null  ? 1 : 0
+  count                     = var.subnet_name != null || var.subnet_id != null ? 1 : 0
   subnet_id                 = var.subnet_id != null ? var.subnet_id : data.azurerm_subnet.subnet[0].id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
@@ -51,7 +51,7 @@ data "azurerm_network_interface" "nic" {
 
 resource "azurerm_network_interface_security_group_association" "nsg_nic_associate" {
   count                     = var.network_interface_name != null || var.network_interface_id != null ? 1 : 0
-  network_interface_id      = var.network_interface_id != null ?  var.network_interface_id  : data.azurerm_network_interface.nic[0].id
+  network_interface_id      = var.network_interface_id != null ? var.network_interface_id : data.azurerm_network_interface.nic[0].id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 

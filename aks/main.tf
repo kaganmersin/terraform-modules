@@ -1,9 +1,9 @@
 
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
-  name                = var.name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  kubernetes_version  = var.kubernetes_version
+  name                            = var.name
+  location                        = var.location
+  resource_group_name             = var.resource_group_name
+  kubernetes_version              = var.kubernetes_version
   dns_prefix                      = var.dns_prefix_managed_cluster
   private_cluster_enabled         = var.private_cluster_enabled
   sku_tier                        = var.sku_tier
@@ -11,10 +11,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   local_account_disabled          = var.local_account_disabled
 
   default_node_pool {
-    name           = var.default_node_pool_name
-    type           = var.default_node_pool_type
-    vm_size        = var.default_node_pool_vm_size
-    vnet_subnet_id = var.default_node_pool_nodes_subnet_id
+    name                   = var.default_node_pool_name
+    type                   = var.default_node_pool_type
+    vm_size                = var.default_node_pool_vm_size
+    vnet_subnet_id         = var.default_node_pool_nodes_subnet_id
     availability_zones     = var.default_node_pool_availability_zones
     node_labels            = var.default_node_pool_node_labels
     enable_auto_scaling    = var.default_node_pool_enable_auto_scaling
